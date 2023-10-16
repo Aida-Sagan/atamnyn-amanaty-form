@@ -1,0 +1,1 @@
+# atamnyn-amanaty-form
