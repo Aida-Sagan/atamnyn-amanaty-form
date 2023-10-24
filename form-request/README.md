@@ -1,11 +1,11 @@
 # form-request
 
-## Project setup
+## Project setup (собрать проект)
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Скомпилировать и запустить проект
 ```
 npm run serve
 ```

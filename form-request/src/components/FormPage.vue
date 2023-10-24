@@ -198,9 +198,7 @@ export default {
             // Перенаправление на страницу успеха
             this.$router.push('/success');
         },
-        handleFileUpload(event) {
-            this.uploadedFile = event.target.files[0];
-        },
+
     },
 };
 </script>
