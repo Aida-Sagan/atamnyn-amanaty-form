@@ -1,32 +1,33 @@
 <template>
-
+    <header>
+        <a href="/">
+            <button class="go-to-main-page">Вернуться на главную</button>
+        </a>
+    </header>
     <div class="wallpaper">
-        <div class="container container-text">
-            <div class="row justify-content-center">
-                <div class="col-6">
-                    <img src="../assets/portrait.png" alt="family-icon">
-                </div>
-                <div class="col-6 hello-text">
-                    <img src="../assets/atamnyn-logo.webp" alt="atamnyn-amanaty-logo" class="logo-atamnyn">
-                    <p class="ru-text">
-                        Мы рады приветствовать Вас на сайте ОО "ATAMNYN AMANATY",
-                        посвященному поиску родственников и солдат, пропавших без вести в годы Великой Отечественной войны.
-                        Мы готовы помочь Вам в поиске своего деда и восстановлении истории вашей семьи.
-                        Заполните нашу форму поиска, и давайте вместе вернем память о наших героях.
-                    </p>
-                    <br>
-                    <p class="ru-text">
-                        Сіздерді Ұлы Отан соғысы кезінде хабарсыз кеткен туыстары мен жауынгерлерді
-                        іздеуге арналған «АТАМНЫН АМАНАТЫ» ҚБ сайтына қош келдіңіздер.
-                        Біз сізге атаңызды табуға және отбасы тарихын қалпына келтіруге көмектесуге дайынбыз.
-                        Іздеу парағын толтырыңыз және кейіпкерлерімізді бірге еске түсірейік.
-                    </p>
+        <section class="section-landing-page">
+            <div class="container container-text">
+                <div class="row justify-content-center">
+                    <div class="col-6 hello-text">
+                        <img src="../assets/atamnyn-logo.webp" alt="atamnyn-amanaty-logo" class="logo-atamnyn">
+                        <p class="ru-text">
+                            Мы рады приветствовать Вас на сайте ОО "ATAMNYN AMANATY",
+                            посвященному поиску родственников и солдат, пропавших без вести в годы Великой Отечественной войны.
+                            Мы готовы помочь Вам в поиске своего деда и восстановлении истории вашей семьи.
+                            Заполните нашу форму поиска, и давайте вместе вернем память о наших героях.
+                        </p>
+                        <br>
+                        <p class="ru-text">
+                            Сіздерді Ұлы Отан соғысы кезінде хабарсыз кеткен туыстары мен жауынгерлерді
+                            іздеуге арналған «АТАМНЫН АМАНАТЫ» ҚБ сайтына қош келдіңіздер.
+                            Біз сізге атаңызды табуға және отбасы тарихын қалпына келтіруге көмектесуге дайынбыз.
+                            Іздеу парағын толтырыңыз және кейіпкерлерімізді бірге еске түсірейік.
+                        </p>
+                    </div>
                 </div>
             </div>
-
-
-        </div>
-
+            <div style="width: 100%; height: 100%; background: white"></div>
+        </section>
 
 
         <div id="stats">
@@ -45,7 +46,7 @@
             <p>Атаңыз туралы ақпарат алу үшін мүмкіндігінше көп сұрақтарға жауап беріңіз.</p>
         </div>
         <div id="app">
-            <form @submit.prevent="submitForm" class="container mt-4">
+            <form @submit.prevent="submitForm" class="container mt-4 form-container">
                 <div class="form-group">
                     <label for="choice">Ваш дедушка вернулся с ВОВ?</label>
                     <select class="form-control" v-model="selectedOption" id="choice">
@@ -56,7 +57,7 @@
 
                 <div class="form-group">
                     <label for="fullName">ФИО (кого ищут)</label>
-                    <input class="form-control" v-model="fullName" id="fullName" type="text">
+                    <input class="form-control" v-model.trim="fullName" id="fullName" type="text">
                 </div>
 
                 <div class="form-group">
@@ -64,13 +65,24 @@
                     <input class="form-control" v-model="relativeName" id="relativeName" type="text">
                 </div>
 
-                <div class="form-group">
-                    <label for="birthYear">Год рождения</label>
-                    <select class="form-control" v-model="selectedYear" id="birthYear">
-                        <option value="" disabled>Выберите год</option>
-                        <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-                    </select>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="birthYear">Год рождения</label>
+                            <select class="form-control" v-model="selectedYear" id="birthYear">
+                                <option value="" disabled>Выберите год</option>
+                                <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="birthDay">День и месяц рождения (если известно)</label>
+                            <input class="form-control" v-model.trim="dateBirth" id="dateBirth" type="text">
+                        </div>
+                    </div>
                 </div>
+
 
                 <div class="form-group">
                     <label for="birthInterval">Если год рождения неизвестен, укажите примерный интервал (например, 1897-1905)</label>
@@ -91,7 +103,6 @@
                     <label for="enlistmentDate">Месяц и год призыва</label>
                     <input class="form-control" v-model="enlistmentDate" id="enlistmentDate" type="text">
                 </div>
-
 
                 <div class="form-group">
                     <label for="choice">Семейный статус</label>
@@ -137,21 +148,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control" for="file">Прикрепить файл:</label>
-                    <input type="file" @change="handleFileUpload" id="file">
+                    <label for="file">Прикрепить файлы, если необходимо:</label>
+                    <input class="form-control" type="file" @change="handleFileUpload" id="file">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Отправить</button>
+                <button type="submit" class="btn btn-apply">
+                    Отправить
+                </button>
 
             </form>
 
-            <div v-if="formSubmitted">
-                <!-- Отображение данных после отправки формы -->
-                <h2>Отправлено:</h2>
-                <p><strong>Выбран вариант:</strong> {{ selectedOption }}</p>
-                <p><strong>Текст:</strong> {{ text }}</p>
-
-            </div>
         </div>
     </div>
 
@@ -167,8 +173,6 @@ export default {
             uploadedFile: null,
             formSubmitted: false,
             selectedYear: '',
-            applicationsCount: 0,
-            foundTodayCount: 0,
         };
     },
     computed: {
@@ -183,13 +187,11 @@ export default {
 
             return yearList;
         },
+
+
     },
     methods: {
         submitForm() {
-            // Увеличиваем счетчик заявок (тут Даурешик сам пропишет логику на стороне бэка)
-            this.applicationsCount += 1;
-            this.foundTodayCount += 1;
-
             // Помечаем форму нашу как отправленную
             this.formSubmitted = true;
 
@@ -204,6 +206,27 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.cdnfonts.com/css/bitter');
+@import url('https://fonts.cdnfonts.com/css/sf-mono');
+
+.section-landing-page {
+    width: 100%;
+    height: 100%;
+}
+
+.go-to-main-page {
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+    background: #ffffff;
+    margin-bottom: 50px;
+
+    &:hover {
+        background: #3b4f5a;
+        color: #fefefd;
+    }
+}
+
 .container-text {
     display: flex;
     flex-direction: row-reverse;
@@ -220,6 +243,7 @@ export default {
     border-radius: 50px;
     padding: 24px 100px 25px 100px;
     margin-bottom: 50px;
+    width: 62%!important;
 }
 
 img {
@@ -229,44 +253,41 @@ img {
 }
 
 .ru-text {
-    color: #646591;
+    color: #4b4c67;
     font-size: 16px;
     font-weight: 600;
+    font-family: 'SF Mono';
 }
 
-form {
-    padding: 10px;
-    border-radius: 5px;
+.form-container {
+    width: 51%!important;
 }
 
-input {
-    padding: 4px 8px;
-    margin: 4px;
+.form-control {
+    border-radius: 20px!important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    height: 60px!important;
 }
 
-span {
-    font-size: 18px;
-    margin: 4px;
-    font-weight: 500;
+.form-group {
+    margin-bottom: 40px;
 }
 
-.submit {
-    font-size: 15px;
-    color: #fff;
-    background: #222;
-    padding: 6px 12px;
-    border: none;
-    margin-top: 8px;
-    cursor: pointer;
-    border-radius: 5px;
+label {
+    font-size: 20px;
+    color: #646591;
+    font-family: 'Bitter';
+    font-style: normal;
+    font-weight: 400;
 }
 
 #stats {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    background: rgba(203, 219, 209, 0.56);
+    margin-bottom: 40px;
 }
 
 .stat-box {
@@ -275,6 +296,7 @@ span {
 
 .stat-label {
     font-weight: bold;
+    font-family: 'SF Mono';
 }
 
 .stat-value {
@@ -283,9 +305,26 @@ span {
 }
 
 .form-text p{
+    font-family: 'SF Mono';
     color: #d36736;
     font-weight: 700;
     font-size: 24px;
+}
+
+.btn-apply {
+    width: 100%;
+    height: 50px;
+    background: #3b4f5a!important;
+    color: #fefefd!important;
+    margin-bottom: 50px;
+    border-radius: 20px!important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Bitter';
+
+
+    &:hover{
+        background: #143d49 !important;
+    }
 }
 
 </style>
