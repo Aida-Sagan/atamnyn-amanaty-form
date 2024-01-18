@@ -150,23 +150,23 @@
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <p></p>
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="contactForm" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Ваше имя</label>
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6 mt-3 mt-md-0">
-                  <label for="name">Ваша почта</label>
+                  <label for="email">Ваша почта</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <label for="name">Тема</label>
+                <label for="subject">Тема</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group mt-3">
-                <label for="name">Написать сообщение</label>
+                <label for="message">Написать сообщение</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
@@ -174,7 +174,9 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Ваше сообщение было отправлено. Спасибо!</div>
               </div>
-              <div class="text-center"><button type="submit">Отправить</button></div>
+              <div class="text-center">
+                <button type="button" onclick="submitForm()">Отправить</button>
+              </div>
             </form>
           </div>
 

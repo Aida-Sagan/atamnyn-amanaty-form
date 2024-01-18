@@ -1,0 +1,51 @@
+Name project: "Atamnyn amanaty"
+Authors: Aida (frontend), Dauren (backend)
+Frontend: JavaScript, Bootstrap, CSS, using webpack
+Backend: GOlang
+Contacts: aidasagan369@gmail.com, telegram: @aida_sgndkva
+
+////////////////////////////// ABOUT PROJECT ////////////////////////////
+
+Project ATamnyn amanaty to search for relatives and soldiers missing during the Second World War. Our task is to create
+a common platform for submitting applications, as well as to facilitate the work of the administration of the public association.
+
+////////////////////////////// FRONTEND //////////////////////////////
+
+Together with a colleague, we are developing a service for submitting applications, authorizing administrators, tracking the status
+of applications, and maintaining statistics on applications. My task as a front-end developer is to create the interface
+of the entire multi-page website, as well as the user experience on the web page containing the contact form.
+
+The site's layout is written in HTML using the Bootstrap framework. I create interactive web pages using JavaScript.
+
+
+>>>>>>>>>>>>>>>>>>>>Let's take a look at Javascript file:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+onscroll(el, listener)
+Description:
+This function provides a convenience method for adding a scroll event listener to a specified HTML element.
+
+Options:
+
+el (type: HTMLElement): The HTML element to which to bind the scroll event listener.
+listener (type: Function): A handler function that will be called on a scroll event.
+
+
+>>>>>>>>>>>>>>>>>Send form on email >>>>>>>>>>>>>>>>>
+
+forms/server.js - file in project with server side in frontend
+assets/js/main.js - file in project with client side
+
+1. On the server side (Node.js):
+    - Made changes to the code to use Node.js to process form data.
+    - Installed necessary dependencies such as Express and nodemailer to create the server and send emails.
+    - A simple server has been created that listens to POST requests to the `/submit-form` endpoint.
+    - Added functionality for sending an email using the nodemailer library when receiving form data.
+
+2. Client side (JavaScript):
+    - Replaced code that used XMLHttpRequest to use the more modern Fetch API to make asynchronous requests.
+    - Added `submitForm()` function, which collects form data, sends it to the server at `/submit-form` and processes the result.
+    - Updated send success and error handlers to accommodate new asynchronous logic.
+
+3. General:
+    - Changed the form's `action` address to "/submit-form" in the HTML code to match the new server endpoint.
+    - Added an example of setting up a local Ethereal test account to send emails on the server side.
