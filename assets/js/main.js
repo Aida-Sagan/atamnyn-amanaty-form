@@ -54,34 +54,21 @@
   * Send form
    */
 
-  async function submitForm() {
-    let formData = new FormData(document.getElementById("contactForm"));
+  let form = document.querySelector('#formApp');
 
-    try {
-      let response = await fetch("/submit-form", {
-        method: "POST",
-        body: formData
-      });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-      if (response.ok) {
-        let result = await response.json();
-        if (result.status === "success") {
-          document.getElementById("contactForm").reset();
-          document.querySelector(".sent-message").style.display = "block";
-        } else {
-          document.querySelector(".error-message").style.display = "block";
-        }
-      } else {
-        document.querySelector(".error-message").innerHTML = "Ошибка при отправке формы.";
-        document.querySelector(".error-message").style.display = "block";
-      }
-    } catch (error) {
-      console.error("Ошибка: " + error.message);
-      document.querySelector(".error-message").innerHTML = "Ошибка при отправке формы.";
-      document.querySelector(".error-message").style.display = "block";
-    } finally {
-      document.querySelector(".loading").style.display = "none";
-    }
-  }
+    let formData = {
+      choice: document.querySelector('#choice').value,
+      fullName: document.querySelector('#fullName').value,
+      relativeName: document.querySelector('#relativeName').value,
+
+    };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+    window.location.href = 'success-page.html';
+
+  })
 
 })()

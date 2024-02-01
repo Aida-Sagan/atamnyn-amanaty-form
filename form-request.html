@@ -22,11 +22,34 @@
     <link href="assets/css/form.css" rel="stylesheet">
 </head>
 <body>
-<a href="index.html" class="btn apply" role="button" aria-pressed="true">Вернуться на главную страницу</a>
 
-<form  class="container mt-4 form-container">
+<section class="container container-butns">
+    <div class="button-back">
+        <a href="index.html"  class="button type--A" role="button" aria-pressed="true">
+            <div class="button__line"></div>
+            <div class="button__line"></div>
+            <span class="button__text">На главную страницу</span>
+            <div class="button__drow1"></div>
+            <div class="button__drow2"></div>
+        </a>
+
+        <a href="assets/download/example-atamnyn.docx" download target="_blank"  class="button type--B" role="button" aria-pressed="true">
+            <div class="button__line"></div>
+            <div class="button__line"></div>
+            <span class="button__text">Скачать образец заявки</span>
+            <div class="button__drow1"></div>
+            <div class="button__drow2"></div>
+        </a>
+    </div>
+
+    <div class="image-container">
+        <img src="assets/img/logo.png" class="img-logo">
+    </div>
+</section>
+
+<form id="formApp" class="container mt-4 form-container">
     <div class="form-group">
-        <label for="choice">Ваш дедушка вернулся с ВОВ?</label>
+        <label for="choice">1) Ваш дедушка вернулся с ВОВ?</label>
         <select class="form-control"  id="choice">
             <option value="option1">Вернулся с ВОВ</option>
             <option value="option2">Не вернулся с ВОВ</option>
@@ -34,107 +57,107 @@
     </div>
 
     <div class="form-group">
-        <label for="fullName">ФИО (кого ищут)</label>
-        <input class="form-control" v-model.trim="fullName" id="fullName" type="text">
+        <label for="fullName">2) ФИО (кого ищут)</label>
+        <input class="form-control" id="fullName" type="text">
     </div>
 
     <div class="form-group">
-        <label for="relativeName">Если известно, укажите имя прадеда, деда, отца разыскиваемого</label>
-        <input class="form-control" v-model="relativeName" id="relativeName" type="text">
+        <label for="relativeName">3) Если известно, укажите имя прадеда, деда, отца разыскиваемого</label>
+        <input class="form-control" id="relativeName" type="text">
     </div>
 
     <div class="form-row">
         <div class="col">
             <div class="form-group">
-                <label for="birthYear">Год рождения</label>
-                <select class="form-control" v-model="selectedYear" id="birthYear">
-                    <option value="" disabled>Выберите год</option>
-                    <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+                <label for="birthYear">4) Год рождения</label>
+                <select class="form-control" id="birthYear">
+                    <option value="" disabled selected>Выберите год</option>
                 </select>
             </div>
         </div>
         <div class="col">
             <div class="form-group">
-                <label for="birthDay">День и месяц рождения (если известно)</label>
-                <input class="form-control" v-model.trim="dateBirth" id="dateBirth" type="text">
+                <label for="birthDay">5) День и месяц рождения (если известно)</label>
+                <input class="form-control"  id="dateBirth" type="text">
             </div>
         </div>
     </div>
 
 
     <div class="form-group">
-        <label for="birthInterval">Если год рождения неизвестен, укажите примерный интервал (например, 1897-1905)</label>
-        <input class="form-control" v-model="birthInterval" id="birthInterval" type="text">
+        <label for="birthInterval">6) Если год рождения неизвестен, укажите примерный интервал (например, 1897-1905)</label>
+        <input class="form-control"  id="birthInterval" type="text">
     </div>
 
     <div class="form-group">
-        <label for="birthCountry">Место рождения: страна и область</label>
-        <input class="form-control" v-model="birthCountry" id="birthCountry" type="text">
+        <label for="birthCountry">7) Место рождения: страна и область</label>
+        <input class="form-control" id="birthCountry" type="text">
     </div>
 
     <div class="form-group">
-        <label for="birthPlace">Место рождения: город, район, населенный пункт</label>
-        <input class="form-control" v-model="birthPlace" id="birthPlace" type="text">
+        <label for="birthPlace">8) Место рождения: город, район, населенный пункт</label>
+        <input class="form-control" id="birthPlace" type="text">
     </div>
 
     <div class="form-group">
-        <label for="enlistmentDate">Месяц и год призыва</label>
-        <input class="form-control" v-model="enlistmentDate" id="enlistmentDate" type="text">
+        <label for="enlistmentDate">9) Месяц и год призыва</label>
+        <input class="form-control" id="enlistmentDate" type="text">
     </div>
 
     <div class="form-group">
-        <label for="choice">Семейный статус</label>
-        <select class="form-control" v-model="selectedOption" id="choice">
-            <option value="option1">женат</option>
-            <option value="option1">холост</option>
-            <option value="option1">разведен</option>
-            <option value="option2">неизвестно</option>
+        <label for="choice">10) Семейный статус</label>
+        <select class="form-control" id="choice">
+            <option value="married">женат</option>
+            <option value="single">холост</option>
+            <option value="divorced">разведен</option>
+            <option value="unknown">неизвестно</option>
         </select>
     </div>
 
     <div class="form-group">
-        <label for="text">Количество детей и их имена</label>
-        <input class="form-control" v-model="text" id="quantityChild" type="text">
+        <label for="text">11) Количество детей и их имена</label>
+        <input class="form-control" id="quantityChild" type="text">
     </div>
 
     <div class="form-group">
-        <label for="message">Кого из родных мог указать Ваш дедушка в анкете призыва на фронт?
+        <label for="message">12) Кого из родных мог указать Ваш дедушка в анкете призыва на фронт?
             (например, Жанагуль - жена, Ботагоз - сестра)</label>
-        <input class="form-control" v-model="message" />
+        <input class="form-control" id="anyInform" />
     </div>
 
     <div class="form-group">
-        <label for="captivityInfo">Есть ли информация, что Ваш дедушка был в плену?</label>
+        <label for="captivityInfo">13) Есть ли информация, что Ваш дедушка был в плену?</label>
         <div>
-            <input type="radio" id="captivityYes" name="captivity" value="yes" v-model="captivityInfo">
+            <input type="radio" id="captivityYes" name="captivity" value="yes" onclick="handleCaptivityChange('yes')">
             <label for="captivityYes">Да</label>
         </div>
         <div>
-            <input type="radio" id="captivityNo" name="captivity" value="no" v-model="captivityInfo">
+            <input type="radio" id="captivityNo" name="captivity" value="no" onclick="handleCaptivityChange('no')">
             <label for="captivityNo">Нет</label>
         </div>
         <div>
-            <input type="radio" id="captivityUnknown" name="captivity" value="no" v-model="captivityInfo">
-            <label for="captivityNo">Неизвестно</label>
+            <input type="radio" id="captivityUnknown" name="captivity" value="unknown" onclick="handleCaptivityChange('unknown')">
+            <label for="captivityUnknown">Неизвестно</label>
         </div>
-
     </div>
 
     <div class="form-group">
-        <label for="captivityLocationInfo">Если выше указали ответ "ДА", то известно ли, где был пленен (указать любую информацию)</label>
-        <textarea class="form-control" id="captivityLocationInfo" v-model="captivityLocationInfo"></textarea>
+        <label for="captivityLocationInfo">14) Если выше указали ответ "ДА", то известно ли, где был пленен (указать любую информацию)</label>
+        <textarea class="form-control" id="captivityLocationInfo" ></textarea>
     </div>
 
     <div class="form-group">
-        <label for="file">Прикрепить файлы, если необходимо:</label>
-        <input class="form-control" type="file" @change="handleFileUpload" id="file">
+        <label for="file">15) Прикрепить файлы, если необходимо:</label>
+        <input class="form-control" type="file" onchange="handleFileUpload()" id="file">
     </div>
 
     <button type="submit" class="btn btn-apply">
         Отправить
     </button>
-
 </form>
+
+
+
 <!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>

@@ -1,7 +1,7 @@
 Name project: "Atamnyn amanaty"
 Authors: Aida (frontend), Dauren (backend)
 Frontend: JavaScript, Bootstrap, CSS, using webpack
-Backend: GOlang
+Backend: Golang
 Contacts: aidasagan369@gmail.com, telegram: @aida_sgndkva
 
 ////////////////////////////// ABOUT PROJECT ////////////////////////////

@@ -4,9 +4,9 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #54576d;
-  /*background: url("../img/bg.jpg") top center no-repeat;*/
-  background-color: #FFF0E5;
+  color: #373a54;
+  background: url("../img/bg-mountain.jpg") top center no-repeat;
+  background-color: #ffffff;
   background-size: cover;
   position: relative;
 }
@@ -18,7 +18,7 @@ body::before {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(203, 186, 12, 0.6);
+  background: rgba(255, 255, 166, 0.34);
 }
 
 @media (min-width: 1024px) {
