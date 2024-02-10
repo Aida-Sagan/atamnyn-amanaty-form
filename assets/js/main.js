@@ -51,6 +51,27 @@
   }
 
   /**
+   * choose year
+   */
+
+  let birthYear = document.querySelector('#birthYear');
+  let currYear = new Date().getFullYear();
+
+  // Добавляем опцию "Выберите год" в начало списка
+  let defaultOption = document.createElement("option");
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  birthYear.add(defaultOption);
+
+  // Добавляем года в список
+  for(let year = 1700; year <= currYear; year++){
+    let optionElement = document.createElement("option");
+    optionElement.value = year;
+    optionElement.text = year;
+    birthYear.add(optionElement);
+  }
+
+  /**
   * Send form
    */
 
@@ -63,12 +84,29 @@
       choice: document.querySelector('#choice').value,
       fullName: document.querySelector('#fullName').value,
       relativeName: document.querySelector('#relativeName').value,
-
+      birthYear: document.querySelector('#birthYear').value,
+      dateBirth: document.querySelector('#dateBirth').value,
+      birthInterval: document.querySelector('#birthInterval').value,
+      birthCountry: document.querySelector('#birthCountry').value,
+      birthPlace: document.querySelector('#birthPlace').value,
+      enlistmentDate: document.querySelector('#enlistmentDate').value,
+      choiceStatus: document.querySelector('#choiceStatus').value,
+      quantityChild: document.querySelector('#quantityChild').value,
+      anyInform: document.querySelector('#anyInform').value,
+      isPlen: document.querySelector('#isPlen').value,
+      captivityLocationInfo: document.querySelector('#captivityLocationInfo').value,
+      file: document.querySelector('#file').value,
+      FIO: document.querySelector('#FIO').value,
+      numberPhone: document.querySelector('#numberPhone').value,
+      address: document.querySelector('#address').value,
+      email: document.querySelector('#email').value,
+      knowAbout: document.querySelector('#knowAbout').value,
     };
 
     localStorage.setItem('formData', JSON.stringify(formData));
-    window.location.href = 'success-page.html';
+    window.location.href = 'check-data-page.html';
 
   })
 
 })()
+

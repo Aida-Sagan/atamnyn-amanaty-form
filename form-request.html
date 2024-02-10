@@ -33,7 +33,7 @@
             <div class="button__drow2"></div>
         </a>
 
-        <a href="assets/download/example-atamnyn.docx" download target="_blank"  class="button type--B" role="button" aria-pressed="true">
+        <a href="assets/download/example.pdf" download target="_blank"  class="button type--B" role="button" aria-pressed="true">
             <div class="button__line"></div>
             <div class="button__line"></div>
             <span class="button__text">Скачать образец заявки</span>
@@ -51,14 +51,14 @@
     <div class="form-group">
         <label for="choice">1) Ваш дедушка вернулся с ВОВ?</label>
         <select class="form-control"  id="choice">
-            <option value="option1">Вернулся с ВОВ</option>
-            <option value="option2">Не вернулся с ВОВ</option>
+            <option value="Вернулся с ВОВ">Вернулся с ВОВ</option>
+            <option value="Не вернулся с ВОВ">Не вернулся с ВОВ</option>
         </select>
     </div>
 
     <div class="form-group">
         <label for="fullName">2) ФИО (кого ищут)</label>
-        <input class="form-control" id="fullName" type="text">
+        <input class="form-control" id="fullName" type="text" required>
     </div>
 
     <div class="form-group">
@@ -106,11 +106,11 @@
 
     <div class="form-group">
         <label for="choice">10) Семейный статус</label>
-        <select class="form-control" id="choice">
-            <option value="married">женат</option>
-            <option value="single">холост</option>
-            <option value="divorced">разведен</option>
-            <option value="unknown">неизвестно</option>
+        <select class="form-control" id="choiceStatus">
+            <option value="женат">женат</option>
+            <option value="холост">холост</option>
+            <option value="разведен">разведен</option>
+            <option value="неизвестно">неизвестно</option>
         </select>
     </div>
 
@@ -127,18 +127,7 @@
 
     <div class="form-group">
         <label for="captivityInfo">13) Есть ли информация, что Ваш дедушка был в плену?</label>
-        <div>
-            <input type="radio" id="captivityYes" name="captivity" value="yes" onclick="handleCaptivityChange('yes')">
-            <label for="captivityYes">Да</label>
-        </div>
-        <div>
-            <input type="radio" id="captivityNo" name="captivity" value="no" onclick="handleCaptivityChange('no')">
-            <label for="captivityNo">Нет</label>
-        </div>
-        <div>
-            <input type="radio" id="captivityUnknown" name="captivity" value="unknown" onclick="handleCaptivityChange('unknown')">
-            <label for="captivityUnknown">Неизвестно</label>
-        </div>
+        <input class="form-control" id="isPlen" />
     </div>
 
     <div class="form-group">
@@ -150,7 +139,30 @@
         <label for="file">15) Прикрепить файлы, если необходимо:</label>
         <input class="form-control" type="file" onchange="handleFileUpload()" id="file">
     </div>
+    <div class="form-group">
+        <label for="captivityLocationInfo">16) ФИО кто ищет</label>
+        <input class="form-control" id="FIO" ></input>
+    </div>
+    <div class="form-group">
+        <label for="captivityLocationInfo">17) Номер телефона (указать несколько)
+        </label>
+        <input class="form-control" id="numberPhone" ></input>
+    </div>
+    <div class="form-group">
+        <label for="captivityLocationInfo">18)Домашний адрес</label>
+        <input class="form-control" id="address" ></input>
+    </div>
+    <div class="form-group">
+        <label for="captivityLocationInfo">19)Электронная почта
+        </label>
+        <input class="form-control" id="email" ></input>
+    </div>
+    <div class="form-group">
+        <label for="captivityLocationInfo">20)Откуда Вы узнали об "Atamnyn Amanaty"?
 
+        </label>
+        <input class="form-control" id="knowAbout" />
+    </div>
     <button type="submit" class="btn btn-apply">
         Отправить
     </button>
@@ -164,5 +176,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/displayData.js"></script>
+
 </body>
 </html>

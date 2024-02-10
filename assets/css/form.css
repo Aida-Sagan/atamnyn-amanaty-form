@@ -4,11 +4,21 @@
 body {
     font-family: "Open Sans", sans-serif;
     color: #ffffff;
-    background: url("../img/bg-mountain.jpg") top center no-repeat;
+    background: url("../img/bg.jpg") top center no-repeat;
     background-size: cover;
     position: relative;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    z-index: -1111111111;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(173, 173, 170, 0.62);
+}
 
 @media (min-width: 1024px) {
     body {
@@ -265,6 +275,7 @@ h6 {
 @media (max-width:768px) {
     .button-back{
         margin: 10px 0 80px 0;
+        gap: 20px;
     }
 }
 
@@ -275,6 +286,13 @@ h6 {
 
 .image-container img {
     width: 30%;
+}
+
+@media (max-width: 768px) {
+    .image-container img {
+        width: 80%;
+    }
+
 }
 
 .btn-apply{
@@ -301,6 +319,26 @@ h6 {
     .img-logo {
         width: 100%;
     }
+}
+
+.cont-display-form {
+    display: flex;
+    justify-content: center;
+}
+
+.displayForm {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(74, 85, 98, 0.57);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+.displayForm .check-title {
+    color: #fffa35;
+    font-weight: 600;
+    margin-bottom: 40px;
 }
 
 

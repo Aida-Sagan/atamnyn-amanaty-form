@@ -21,14 +21,23 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 
 <body>
+<section class="btn-login">
+  <div class="container">
+    <div class="block-login">
+      <a href="admin.html" class="login" role="button" aria-pressed="true">Войти (только для админов)</a>
+    </div>
+  </div>
+</section>
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
+
     <div class="container d-flex flex-column align-items-center">
-<!--      <a href="form-request.html" class="btn apply" role="button" aria-pressed="true">Подать заявку</a>-->
 
       <img src="assets/img/logo.png" class="img-logo">
       <h1 style="color: #209f90" class="title-amanaty">"ATAMNYN AMANATY"</h1>
@@ -95,20 +104,22 @@
         </div>
 
         <div class="row mt-2">
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          <div class="col-lg-6 col-md-6 icon-box">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Статистика по областям</h5>
+
+                <!-- Bar Chart -->
+                <div id="barChart"></div>
+                <!-- End Bar Chart -->
+
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
+
           <div class="col-lg-4 col-md-6 icon-box">
             <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p class="description">Здесь представлена статистика</p>
           </div>
         </div>
 
@@ -153,7 +164,8 @@
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <p></p>
-            <form id="contactForm" role="form" class="php-email-form">
+
+            <form onclick="emailSend(); reset(); return false;" action="#" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Ваше имя</label>
@@ -170,16 +182,20 @@
               </div>
               <div class="form-group mt-3">
                 <label for="message">Написать сообщение</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Загрузка...</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Ваше сообщение было отправлено. Спасибо!</div>
               </div>
-              <div class="text-center"><button type="submit">Отправить</button></div>
+              <div class="text-center">
+                <button type="submit">Отправить</button>
+              </div>
+
 
             </form>
+
           </div>
 
         </div>
@@ -204,10 +220,17 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<!--  <script src="assets/vendor/php-email-form/validate.js"></script>-->
+
+
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chart.js"></script>
+  <script src="forms/server.js"></script>
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
 
 </body>
 

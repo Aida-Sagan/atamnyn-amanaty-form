@@ -4,7 +4,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #373a54;
+  color: #ffffff;
   background: url("../img/bg-mountain.jpg") top center no-repeat;
   background-color: #ffffff;
   background-size: cover;
@@ -311,6 +311,46 @@ h6 {
   background: #24b7a4;
   border-color: #24b7a4;
 }
+
+/*--------------------------------------------------------------
+# button admin
+--------------------------------------------------------------*/
+.btn-login .block-login .login{
+  z-index: 555;
+  display: flex;
+  font-family: "Raleway", sans-serif;
+}
+
+.btn-login .block-login {
+  float: right;
+}
+
+.btn-login .login{
+  background-color: rgba(36, 183, 164, 0.54);
+  color: white;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-login .login:hover{
+  background-color: rgba(11, 77, 68, 0.54);
+}
+
+.btn-login .block-login {
+  display: flex;
+}
+
+/*--------------------------------------------------------------
+# Chart
+--------------------------------------------------------------*/
+.card {
+  background-color:rgba(255, 255, 255, 0.5) ;
+  color: #000000;
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
